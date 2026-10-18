@@ -140,6 +140,20 @@ Prompt: *"What is your target engine?"*
 
 ---
 
+### Phase 6: Live Web Tuning Lab & Hot-Reload Parameter Architecture
+
+1. **Architecture Requirement**:
+   - Provide a persistent local browser-based tuning lab (`web_calibrator/`) served via a lightweight Python daemon (`http://127.0.0.1:8089`).
+   - Store all fine-tuning calibrations and dynamic animation parameters in project-level JSON files (`board_calibration.json`, `shake_params.json`).
+   - Godot scripts must dynamically read and hot-reload from these JSON files upon gameplay events (e.g. captures, moves) so that changes in the web UI take effect immediately without recompilation.
+2. **Interactive Tuning Capabilities**:
+   - **Direct Per-Tile Anchoring**: Allow dragging individual piece anchors for perspective-tilted surfaces without relying solely on camera math.
+   - **Kinetic FX & Shake Tuning**: Provide live canvas previews with sliders for impact force, rebound recoil, vibration cycles, duration, and tween easing modes (`TRANS_BOUNCE`, `TRANS_ELASTIC`, `TRANS_BACK`, `TRANS_QUAD`).
+3. **Save & Sync Contract**:
+   - Saving from the web UI writes directly to the project directory, ensuring immediate, zero-token parameter updates in the running game.
+
+---
+
 ## Scripts & Helpers Reference
 
 - `python3 scripts/slice_and_inpaint.py --input <path> --output <dir>`: Extracts alpha feathered decals and masks.
