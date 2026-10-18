@@ -154,6 +154,28 @@ Prompt: *"What is your target engine?"*
 
 ---
 
+### Phase 7: 12 Principles for Game Animation Standards & Tuning Lab
+
+Game animation must balance expressive appeal with tight interactivity and responsive gameplay (as detailed in *12 Principles for Game Animation*):
+
+1. **Squash and Stretch**:
+   - Give weight and elasticity to rigid and organic tokens alike.
+   - When launching, stretch along the velocity vector.
+   - On impact landing, squash horizontally ($X$) and compress vertically ($Y$), then rebound to rest using bounding tweens (`TRANS_ELASTIC` / `TRANS_BOUNCE`).
+2. **Anticipation (Wind-Up / Readability)**:
+   - Prepare the player for rapid motion with a momentary crouch, glow, or rear pull before launch.
+   - **Game Constraint**: Keep anticipation brief ($0.06\text{s} - 0.12\text{s}$) to avoid sluggish input latency.
+3. **Staging & Solid Drawing**:
+   - Clearly silhouette active versus resting elements; respect perspective foreshortening across the 2.5D board depth.
+4. **Timing & Motion (Easing Curves)**:
+   - Use non-linear easing (`EASE_OUT` for explosive hits, `EASE_IN_OUT` for smooth glides). Fewer frames/duration during mid-flight creates visceral speed.
+5. **Follow-Through, Overlap & Secondary Action**:
+   - Secondary actions reinforce primary impact: landing shockwave rings, dust puffs, table console vibration, and audio-reactive meter pulses.
+6. **Exaggeration & Appeal**:
+   - Arcade games thrive on elevated physical feedback; oversize arcs and energetic bounce settle convey tactile arcade punch.
+
+---
+
 ## Scripts & Helpers Reference
 
 - `python3 scripts/slice_and_inpaint.py --input <path> --output <dir>`: Extracts alpha feathered decals and masks.
