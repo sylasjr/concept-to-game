@@ -81,12 +81,21 @@ Decompose the approved concept into isolated assets using the helper script `sli
 3. **Decal Isolation**: Extract ground impacts with feathered alpha gradients (`authentic_cyber_crater_clean.png`).
 4. **HUD Elements**: Crop meters, side LED bars, or energy gauges.
 
-#### Interactive Checkpoint 3 (`ask_question`):
+#### Interactive Checkpoint 3A (`ask_question`):
 Prompt: *"Select the layers to extract and separate for this scene:"* (Set `is_multi_select: true`)
 - `[x] Clean Empty Table/Board (Inpainted with zero pieces)`
 - `[x] Interactive Pieces & Tokens (Transparent cutouts)`
 - `[x] Ground Impact / Crater Decals (Feathered alpha)`
 - `[x] Animated Side Gauges / LED Meters`
+
+#### Interactive Checkpoint 3B (Mandatory Human-in-the-Loop Clean Asset Approval):
+**CRITICAL**: DO NOT write or execute any game code until this checkpoint is approved.
+1. Perform inpainting (Method A) and transparent alpha cutouts (Method B) for the selected elements.
+2. Present side-by-side comparisons of the cleaned elements and isolated background/table layers in an artifact or review sheet.
+3. Call `ask_question` to inspect and confirm the user is 100% satisfied with the clean assets:
+   Prompt: *"Does this clean asset separation meet your expectations?"*
+   - `(Recommended) Approved! Proceed to animation pinpointing & VFX stages`
+   - `Needs adjustment on [Element] (specify in write-in)`
 
 ---
 
